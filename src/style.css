@@ -1,0 +1,279 @@
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #1b1210;
+  --bg-warm: #2a1f1a;
+  --bg-card: #3b2d24;
+  --text-cream: #f5e6d3;
+  --text-light: #d4b896;
+  --text-muted: #9a7b63;
+  --accent: #c8956c;
+  --accent-hover: #daa882;
+  --gold: #d4a44c;
+  --border: #4a3828;
+  --radius: 14px;
+}
+
+body {
+  font-family: 'Lato', 'Segoe UI', sans-serif;
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(200, 149, 108, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 164, 76, 0.04) 0%, transparent 50%);
+  color: var(--text-cream);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* ===== Container ===== */
+.cafeteria {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.logo {
+  font-size: 3rem;
+  filter: drop-shadow(0 2px 6px rgba(200, 149, 108, 0.3));
+}
+
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-cream);
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ===== Menu Board ===== */
+.menu-board {
+  width: 100%;
+  background-color: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menu-label {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  align-self: center;
+}
+
+/* ===== Imagens ===== */
+.img-container {
+  width: 100%;
+  min-height: 200px;
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border);
+}
+
+.menu-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.menu-img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+.loading-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  padding: 2rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.error-text {
+  color: #c0706b;
+  font-size: 0.95rem;
+  padding: 2rem;
+}
+
+/* ===== Botão ===== */
+button {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(135deg, var(--accent), #b07a50);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(200, 149, 108, 0.25);
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+  box-shadow: 0 6px 20px rgba(200, 149, 108, 0.35);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+/* ===== Responsivo — Celular ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .menu-board {
+    padding: 1rem;
+  }
+
+  .menu-label {
+    font-size: 1.05rem;
+  }
+
+  .menu-img {
+    height: 220px;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===== Responsivo — Tablet ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cafeteria {
+    max-width: 520px;
+  }
+
+  .menu-img {
+    height: 250px;
+  }
+}
+
+/* ===== Desktop grande — lado a lado ===== */
+@media (min-width: 769px) {
+  .cafeteria {
+    max-width: 800px;
+  }
+
+  .menu-board {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .menu-item {
+    flex: 1;
+  }
+
+  .divider {
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, var(--border), transparent);
+  }
+
+  .menu-img {
+    height: 300px;
+  }
+}
